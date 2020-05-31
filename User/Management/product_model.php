@@ -59,7 +59,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">ໂມເດວສິນຄ້າd</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">ໂມເດວສິນຄ້າ</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -147,7 +147,7 @@
                         $upload_path = $image_path.$new_image_name;
                         move_uploaded_file($_FILES["img_path"]["tmp_name"], $upload_path);
                         $pro_img = $new_image_name;
-                        $sqlinsert = "insert into product_model(pro_id,model_id,img_path) values('$pro_id','$model_id','$pro_img')";
+                        $sqlinsert = "insert into product_model(pro_id,model,img_path) values('$pro_id','$model_id','$pro_img')";
                         $resultinsert = mysqli_query($link, $sqlinsert);
                         if(!$resultinsert){
                             echo"<script>";
