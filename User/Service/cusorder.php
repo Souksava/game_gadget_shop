@@ -183,7 +183,7 @@
                                                 <textarea name="note" id="" cols="30" rows="5" class="form-control" placeholder=" ລາຍລະອຽດຕອບກັບການສັ່ງຊື້"></textarea>
                                             </div>
                                             <div class="col-md-12" align="center">
-                                                <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">
+                                                <button type="button" style="width: 100%;" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">
                                                     ຕອບຮັບການສັ່ງຊື້
                                                 </button>
                                                 <!-- Modal -->
@@ -202,6 +202,31 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
                                                                 <button type="submit" name="btnAnswer" class="btn btn-outline-success">ຕອບຮັບ</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" align="center"> <br>
+                                                <button type="button" style="width:100%;" class="btn btn-outline-danger" data-toggle="modal" data-target="#staticBackdrop2">
+                                                    ລົບການສັ່ງຊື້  
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="staticBackdrop2" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">ຢືນຢັນ</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ທ່ານຕ້ອງການລົບ ຫຼື ບໍ່ ?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+                                                                <button type="submit" name="btnDelete" class="btn btn-outline-danger">ລົບການສັ່ງຊື້</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -256,6 +281,30 @@
                 }
                 echo"<script>";
                 echo"window.location.href='listorder.php?savet=true';";
+                echo"</script>";
+            }
+        }
+    }
+    if(isset($_POST['btnDelete'])){
+        $id = $_POST['sell_id'];
+        $sqldeletedetail = "delete from selldetail where sell_id='$id';";
+        $resultdeletedetail = mysqli_query($link,$sqldeletedetail);
+        if(!$resultdeletedetail){
+            echo"<script>";
+            echo"window.location.href='listorder.php?del=found';";
+            echo"</script>";
+        }
+        else{
+            $sqldeletesell = "delete from sell where sell_id='$id';";
+            $resultdeletesell = mysqli_query($link,$sqldeletesell);
+            if(!$resultdeletesell){
+                echo"<script>";
+                echo"window.location.href='listorder.php?del=found';";
+                echo"</script>";
+            }
+            else{
+                echo"<script>";
+                echo"window.location.href='listorder.php?del=success';";
                 echo"</script>";
             }
         }

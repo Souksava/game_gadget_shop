@@ -55,6 +55,16 @@
         swal("", "ກະລຸນາປ້ອນລາຍລະອຽດການຕອບຮັບສິນຄ້າ !!", "info");
         </script>';
     }
+    if(isset($_GET['del'])=='found'){
+        echo'<script type="text/javascript">
+        swal("", "ບໍ່ສາມາດລົບລາຍການໄດ້ ກະລຸນາລອງໃໝ່ອີກຄັ້ງ !!", "error");
+        </script>';
+    }
+    if(isset($_GET['del'])=='success'){
+        echo'<script type="text/javascript">
+        swal("", "ລົບລາຍການສັ່ງຊື້ສຳເລັດ  !!", "success");
+        </script>';
+    }
   ?>
     <!-- head -->
         <div class="header">

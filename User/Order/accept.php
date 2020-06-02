@@ -126,7 +126,7 @@
                 <td><?php echo $row['order_time'] ?></td>
                 <td><?php echo $row['status'] ?></td>
                 <td>
-                    <a href="Showorder.php?id=<?php echo $row['order_id'] ?>">
+                    <a href="showorder.php?id=<?php echo $row['order_id'] ?>">
                         <img src="../../icon/info.ico" alt="" width="25px">&nbsp&nbsp
                     </a>
                     <a href="delorder.php?id=<?php echo $row['order_id'] ?>">
